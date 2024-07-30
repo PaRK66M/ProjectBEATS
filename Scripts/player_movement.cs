@@ -1,41 +1,37 @@
 using Godot;
 using System;
-using System.Drawing;
+using System.Diagnostics;
 
-public partial class player_movement : Node2D
+public class player_movement : Node
 {
-	Vector2 velocity = Vector2.Zero;
+    Vector2 velocity = Vector2.Zero;
 	float speed = 10;
 	float jumpForce = 10;
 	float gravity;
 
 	RayCast2D raycast;
 
+	player_manager playerManager;
 
-	CharacterBody2D playerBody;
-	// Called when the node enters the scene tree for the first time.
-	public void _Ready(CharacterBody2D pBody, float horizontalSpeed, float gravityAcceleration, float jump)
+    public void Initialise(player_manager pManager, float horizontalSpeed, float gravityAcceleration, float jump)
 	{
-		playerBody = pBody;
+		playerManager = pManager;
 
 		speed = horizontalSpeed;
 
 		gravity = gravityAcceleration;
 		jumpForce = jump;
 
-		raycast = new RayCast2D();
-		raycast.Position = Vector2.Zero;
-		raycast.TargetPosition = Vector2.Down;
-		playerBody.AddChild(raycast);
+		raycast = pManager.GetNode<RayCast2D>("FloorCast");
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-		
-	}
+    // Called every frame. 'delta' is the elapsed time since the previous frame.
+    public override void _Process(float delta)
+    {
 
-    public override void _PhysicsProcess(double delta)
+    }
+
+    public override void _PhysicsProcess(float delta)
     {
 		// Calculates movement
 		VerticalMovement();
@@ -47,17 +43,18 @@ public partial class player_movement : Node2D
 
 	private void VerticalMovement(){
 		if(IsGrounded()){
-			velocity.Y = 0;
+			velocity.y = 0;
 			//GD.Print("Grounded");
 			if(Input.IsActionJustPressed("jump")){
-				velocity.Y = -jumpForce;
+				velocity.y = -jumpForce;
 			}
 			return;
 		}
 		ApplyGravity();
 		// Temp Jump Cut
-		if(Input.IsActionJustReleased("jump")){
-			velocity.Y = 0;
+		if(Input.IsActionJustReleased("jump") && velocity.y < 0){
+			//GD.Print(velocity.y);
+			velocity.y = 0;
 		}
 	}
 
@@ -66,29 +63,43 @@ public partial class player_movement : Node2D
 		float horizontalMovementInput = 0;
 		if(Input.IsActionPressed("move_right")){
 			horizontalMovementInput += 1;
+			playerManager.ChangeFacing(true);
 		}
 		if(Input.IsActionPressed("move_left")){
 			horizontalMovementInput -= 1;
+			playerManager.ChangeFacing(false);
 		}
+
+        //GD.Print("Movement: " + horizontalMovementInput);
 
 		// Movement
 		float targetSpeed = horizontalMovementInput * speed;
 
-		float speedDifference = targetSpeed - velocity.X;
+		float speedDifference = targetSpeed - velocity.x;
 
-		velocity.X += speedDifference;
+		velocity.x += speedDifference;
+
+        //GD.Print(speedDifference);
 	}
 
 	// Helps wrap my head around movement
 	private void MovePlayer(){
-		playerBody.MoveAndCollide(velocity);
+		playerManager.MoveAndCollide(velocity);
+
+		// Animation update
+        if(velocity == Vector2.Zero){
+			playerManager.ChangeState(PlayerState.IDLE);
+			return;
+		}
+		playerManager.ChangeState(PlayerState.MOVING);
 	}
 
 	private void ApplyGravity(){
 		if(!IsGrounded()){
-			velocity += new Vector2(0.0f, gravity);
+			velocity.y += gravity;
+            return;
 		}
-
+        velocity.y = 0;
 	}
 
 	// Since horizontal movement is handled with MoveAndCollide, IsOnFloor will never be updated
