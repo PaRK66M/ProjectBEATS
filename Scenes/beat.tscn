@@ -4,7 +4,7 @@
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0 )
-colors = PoolColorArray( 1, 1, 1, 1 )
+colors = PoolColorArray( 1, 1, 0.25098, 1 )
 
 [sub_resource type="GradientTexture2D" id=2]
 gradient = SubResource( 1 )
@@ -13,7 +13,7 @@ height = 200
 
 [sub_resource type="Gradient" id=3]
 offsets = PoolRealArray( 0 )
-colors = PoolColorArray( 1, 1, 1, 1 )
+colors = PoolColorArray( 1, 1, 0.25098, 1 )
 
 [sub_resource type="GradientTexture2D" id=4]
 gradient = SubResource( 3 )
@@ -24,16 +24,21 @@ height = 200
 script = ExtResource( 1 )
 travelDistance = 980.0
 endPoint = 960.0
-travelTime = 3.0
+travelTime = 1.5
 beatSize = 40.0
 
 [node name="LeftBeat" type="TextureRect" parent="."]
-margin_left = -40.0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -1000.0
+margin_right = -960.0
 margin_bottom = 200.0
 texture = SubResource( 2 )
 
 [node name="RightBeat" type="TextureRect" parent="."]
-margin_left = 1920.0
-margin_right = 1960.0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 960.0
+margin_right = 1000.0
 margin_bottom = 200.0
 texture = SubResource( 4 )

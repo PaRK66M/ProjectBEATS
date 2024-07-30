@@ -20,6 +20,8 @@ public class beat_movement : Node
     private float leftStartPoint;
     private float rightStartPoint;
 
+    private float bothStartPointsAdded;
+
     private float actualEndPoint;
 
     private float travelTimer;
@@ -40,6 +42,8 @@ public class beat_movement : Node
         leftStartPoint = actualEndPoint - travelDistance;
         rightStartPoint = actualEndPoint + travelDistance;
 
+        bothStartPointsAdded = leftStartPoint + rightStartPoint;
+
         BeatUpdateAction += MoveBeat;
     }
 
@@ -56,15 +60,17 @@ public class beat_movement : Node
         
         if(travelProgress < 1){
             float leftPosition = Mathf.Lerp(leftStartPoint, actualEndPoint, travelProgress);
-            float rightPosition = rightStartPoint - leftPosition;
+            float rightPosition = bothStartPointsAdded - leftPosition;
 
             leftBeat.RectPosition = new Vector2(leftPosition, beatHeight);
             rightBeat.RectPosition = new Vector2(rightPosition, beatHeight);
             return;
         }
 
-        leftBeat.RectPosition = new Vector2(endPoint, beatHeight);
-        rightBeat.RectPosition = new Vector2(endPoint, beatHeight);
+        GD.Print(actualEndPoint);
+
+        leftBeat.RectPosition = new Vector2(actualEndPoint, beatHeight);
+        rightBeat.RectPosition = new Vector2(actualEndPoint, beatHeight);
 
         BeatUpdateAction -= MoveBeat;
         BeatUpdateAction += ActivatedVisuals;
@@ -72,7 +78,7 @@ public class beat_movement : Node
     }
 
     private void ActivatedVisuals(){
-        BeatUpdateAction -= ActivatedVisuals;
+        //BeatUpdateAction -= ActivatedVisuals;
         DestroyBeat();
     }
 
@@ -82,6 +88,6 @@ public class beat_movement : Node
         Next best solution, move the beats to the shadow realm
     */
     private void DestroyBeat(){
-        this.QueueFree();
+        //this.QueueFree();
     }
 }

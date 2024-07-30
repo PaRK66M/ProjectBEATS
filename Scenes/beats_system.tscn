@@ -1,7 +1,24 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/beats_system_manager.cs" type="Script" id=1]
 
-[node name="Node" type="Node"]
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0 )
+colors = PoolColorArray( 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture2D" id=2]
+gradient = SubResource( 1 )
+width = 20
+height = 240
+
+[node name="BeatsManager" type="Node"]
 script = ExtResource( 1 )
-debugSpawnTimes = PoolRealArray( 0, 0.2, 0.6, 0.65, 0.7 )
+debugSpawnTimes = PoolRealArray( 0, 0.2, 0.6, 0.7, 0.8 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -10.0
+margin_right = 10.0
+margin_bottom = 240.0
+texture = SubResource( 2 )
