@@ -30,12 +30,15 @@ public class beat_movement : Node
     private TextureRect leftBeat;
     private TextureRect rightBeat;
 
+    beats_system_manager manager;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
         leftBeat = GetNode<TextureRect>("LeftBeat");
         rightBeat = GetNode<TextureRect>("RightBeat");
+
+        manager = GetNode<Node>("/root/Stage/BeatsManager") as beats_system_manager;
 
         travelTimer = 0.0f;
         actualEndPoint = endPoint - beatSize / 2;
@@ -67,17 +70,24 @@ public class beat_movement : Node
             return;
         }
 
-        GD.Print(actualEndPoint);
+        //GD.Print(actualEndPoint);
 
-        leftBeat.RectPosition = new Vector2(actualEndPoint, beatHeight);
-        rightBeat.RectPosition = new Vector2(actualEndPoint, beatHeight);
+        ActivateBeat();
 
         BeatUpdateAction -= MoveBeat;
         BeatUpdateAction += ActivatedVisuals;
         
     }
 
+    private void ActivateBeat(){
+        leftBeat.RectPosition = new Vector2(actualEndPoint, beatHeight);
+        rightBeat.RectPosition = new Vector2(actualEndPoint, beatHeight);
+
+        manager.ExecutePlayerActions();
+    }
+
     private void ActivatedVisuals(){
+
         //BeatUpdateAction -= ActivatedVisuals;
         DestroyBeat();
     }

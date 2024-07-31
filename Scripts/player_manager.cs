@@ -11,6 +11,7 @@ public class player_manager : KinematicBody2D
 
     // Player scripts
 	player_movement player_movement_script;
+    player_actions player_actions_script;
     player_animation player_animation_script;
 
 	// Movement
@@ -33,12 +34,14 @@ public class player_manager : KinematicBody2D
 		player_movement_script.Initialise(this, speed, gravity, jumpForce);
         player_animation_script = new player_animation();
         player_animation_script.Initialise(this);
+        player_actions_script = new player_actions();
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(float delta)
     {
         player_movement_script._Process(delta);
+        player_actions_script._Process(delta);
     }
 
     public override void _PhysicsProcess(float delta)
@@ -67,5 +70,17 @@ public class player_manager : KinematicBody2D
 
         isFacingRight = newFacingDirection;
         player_animation_script.UpdateAnimationDirection(isFacingRight);
+    }
+
+    private void InputUpdate(){
+        
+    }
+
+    public void ExecutePlayerActions(){
+        player_actions_script.ExecutePlayerActions();
+    }
+
+    public void TestFunction(){
+        GD.Print("Player Manager Here");
     }
 }

@@ -1,8 +1,10 @@
 using Godot;
 using System;
+using System.IO;
 
 public struct BeatMapInfo{
         public float startTime;
+        public string songPath;
         public float[] spawnTimes;
     }
 
@@ -14,12 +16,18 @@ public class beats_system_manager : Node
     // Debug Testing
     [Export]
     float[] debugSpawnTimes;
+    [Export]
+    string debugSongPath;
 
     private BeatMapInfo currentBeatMapInfo;
 
     private int spawnBeatIndex;
 
     private int beatsToSpawn;
+
+    AudioStreamPlayer musicPlayer;
+
+    player_manager player_manager_script;
 
     public void LoadBeatMap(BeatMapInfo newBeatMap){
         currentBeatMapInfo = newBeatMap;
@@ -28,7 +36,14 @@ public class beats_system_manager : Node
 
         spawnBeatIndex = 0;
         beatsToSpawn = currentBeatMapInfo.spawnTimes.Length;
-        GD.Print(beatsToSpawn);
+
+        musicPlayer.Stream = GD.Load<AudioStream>(currentBeatMapInfo.songPath);
+        musicPlayer.Playing = true;
+        
+
+        player_manager_script = GetNode<KinematicBody2D>("/root/Stage/Player") as player_manager;
+        
+        player_manager_script.TestFunction();
     }
 
     // Called when the node enters the scene tree for the first time.
@@ -37,8 +52,15 @@ public class beats_system_manager : Node
         // Debug testing
         BeatMapInfo debugBeatMapInfo;
         debugBeatMapInfo.startTime = 0;
+        debugBeatMapInfo.songPath = debugSongPath;
         debugBeatMapInfo.spawnTimes = debugSpawnTimes;
+
+        musicPlayer = GetNode<AudioStreamPlayer>("MusicPlayer");
+
+        
+
         LoadBeatMap(debugBeatMapInfo);
+
 
     }
 
@@ -46,7 +68,6 @@ public class beats_system_manager : Node
     public override void _Process(float delta)
     {
         stageTimer += delta;
-
 
         // This is bad for several reasons
         /*
@@ -57,7 +78,7 @@ public class beats_system_manager : Node
         */
         if(spawnBeatIndex != beatsToSpawn){
             if(currentBeatMapInfo.spawnTimes[spawnBeatIndex] <= stageTimer){
-                GD.Print("Spawn");
+                //GD.Print("Spawn");
                 spawnBeatIndex++;
 
                 var beatTemplate = GD.Load<PackedScene>("res://Scenes/beat.tscn");
@@ -65,7 +86,11 @@ public class beats_system_manager : Node
                 this.AddChild(beatInstance);
             }
         }
-        
-        
     }
+
+    public void ExecutePlayerActions(){
+        player_manager_script.ExecutePlayerActions();
+    }
+
+
 }
