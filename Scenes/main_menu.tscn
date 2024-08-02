@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/main_menu.cs" type="Script" id=1]
+
+[node name="Main Menu" type="Node"]
+script = ExtResource( 1 )
+
+[node name="GameButton" type="Button" parent="."]
+margin_left = 504.0
+margin_top = 230.0
+margin_right = 604.0
+margin_bottom = 250.0
+rect_scale = Vector2( 10, 10 )
+text = "Game"
+
+[node name="SongMakingButton" type="Button" parent="."]
+margin_left = 501.0
+margin_top = 685.0
+margin_right = 601.0
+margin_bottom = 705.0
+rect_scale = Vector2( 10, 10 )
+text = "Beatmap"

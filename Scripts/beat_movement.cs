@@ -38,7 +38,7 @@ public class beat_movement : Node
         leftBeat = GetNode<TextureRect>("LeftBeat");
         rightBeat = GetNode<TextureRect>("RightBeat");
 
-        manager = GetNode<Node>("/root/Stage/BeatsManager") as beats_system_manager;
+        manager = GetNode<Node>("/root/GameManager/Stage/BeatsManager") as beats_system_manager;
 
         travelTimer = 0.0f;
         actualEndPoint = endPoint - beatSize / 2;

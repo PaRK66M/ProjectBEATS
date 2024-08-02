@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/game_manager.cs" type="Script" id=1]
+
+[node name="GameManager" type="Node"]
+script = ExtResource( 1 )
+debugSpawnTimes = PoolRealArray( 0, 0.5, 1, 1.2, 1.4 )
+debugSongPath = "res://TempAssets/Music/REFRESH - Aests.mp3"
+
+[node name="StartGameButton" type="Button" parent="."]
+margin_left = 504.0
+margin_top = 230.0
+margin_right = 604.0
+margin_bottom = 250.0
+rect_scale = Vector2( 10, 10 )
+text = "Start"

@@ -12,13 +12,7 @@ public class beats_system_manager : Node
 {
 
     float stageTimer;
-
-    // Debug Testing
-    [Export]
-    float[] debugSpawnTimes;
-    [Export]
-    string debugSongPath;
-
+    
     private BeatMapInfo currentBeatMapInfo;
 
     private int spawnBeatIndex;
@@ -41,27 +35,17 @@ public class beats_system_manager : Node
         musicPlayer.Playing = true;
         
 
-        player_manager_script = GetNode<KinematicBody2D>("/root/Stage/Player") as player_manager;
-        
-        player_manager_script.TestFunction();
+        player_manager_script = GetNode<KinematicBody2D>("/root/GameManager/Stage/Player") as player_manager;
+
+        SetProcess(true);
     }
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        // Debug testing
-        BeatMapInfo debugBeatMapInfo;
-        debugBeatMapInfo.startTime = 0;
-        debugBeatMapInfo.songPath = debugSongPath;
-        debugBeatMapInfo.spawnTimes = debugSpawnTimes;
+        SetProcess(false);
 
         musicPlayer = GetNode<AudioStreamPlayer>("MusicPlayer");
-
-        
-
-        LoadBeatMap(debugBeatMapInfo);
-
-
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.

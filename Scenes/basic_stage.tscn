@@ -28,4 +28,3 @@ scale = Vector2( 1920, 300 )
 shape = SubResource( 3 )
 
 [node name="BeatsManager" parent="." instance=ExtResource( 3 )]
-debugSongPath = "res://TempAssets/Music/REFRESH - Aests.mp3"
