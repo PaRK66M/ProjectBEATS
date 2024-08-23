@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Some Kind Of Magic.mp3-837dc84a1b7a4d6f440013dff1b9b58b.mp3str"
+
+[deps]
+
+source_file="res://TempAssets/Music/Some Kind Of Magic.mp3"
+dest_files=[ "res://.import/Some Kind Of Magic.mp3-837dc84a1b7a4d6f440013dff1b9b58b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Warriors.mp3-f9c27a026ecc187de6eb425132fbb2c8.mp3str"
+
+[deps]
+
+source_file="res://TempAssets/Music/Warriors.mp3"
+dest_files=[ "res://.import/Warriors.mp3-f9c27a026ecc187de6eb425132fbb2c8.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

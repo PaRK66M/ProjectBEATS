@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Remember.mp3-fe2a0b63885aa013d2f628c3233868db.mp3str"
+
+[deps]
+
+source_file="res://TempAssets/Music/Remember.mp3"
+dest_files=[ "res://.import/Remember.mp3-fe2a0b63885aa013d2f628c3233868db.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

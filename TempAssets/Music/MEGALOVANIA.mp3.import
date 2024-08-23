@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/MEGALOVANIA.mp3-7bcd758c873665d9a0e1b5e2076c213d.mp3str"
+
+[deps]
+
+source_file="res://TempAssets/Music/MEGALOVANIA.mp3"
+dest_files=[ "res://.import/MEGALOVANIA.mp3-7bcd758c873665d9a0e1b5e2076c213d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

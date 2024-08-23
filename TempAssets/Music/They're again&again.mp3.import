@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/They're again&again.mp3-98a83ac057a28c36fba97e3c58ee4db8.mp3str"
+
+[deps]
+
+source_file="res://TempAssets/Music/They're again&again.mp3"
+dest_files=[ "res://.import/They're again&again.mp3-98a83ac057a28c36fba97e3c58ee4db8.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

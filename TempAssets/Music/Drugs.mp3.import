@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Drugs.mp3-8d76ad4f386131757e0242a557446eef.mp3str"
+
+[deps]
+
+source_file="res://TempAssets/Music/Drugs.mp3"
+dest_files=[ "res://.import/Drugs.mp3-8d76ad4f386131757e0242a557446eef.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

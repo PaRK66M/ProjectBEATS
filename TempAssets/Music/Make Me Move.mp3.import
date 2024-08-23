@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Make Me Move.mp3-f29013bc349169059d08c0bc736d7bd5.mp3str"
+
+[deps]
+
+source_file="res://TempAssets/Music/Make Me Move.mp3"
+dest_files=[ "res://.import/Make Me Move.mp3-f29013bc349169059d08c0bc736d7bd5.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

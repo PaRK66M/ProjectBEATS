@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Lights, Camera, Action! - Studiopolis Zone Act 1.mp3-8b5abdfb9a5de3db924e9cd4b4fb9ec2.mp3str"
+
+[deps]
+
+source_file="res://TempAssets/Music/Lights, Camera, Action! - Studiopolis Zone Act 1.mp3"
+dest_files=[ "res://.import/Lights, Camera, Action! - Studiopolis Zone Act 1.mp3-8b5abdfb9a5de3db924e9cd4b4fb9ec2.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

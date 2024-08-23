@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Deadlocked.mp3-56dc0f0690fb02516504995ef61918da.mp3str"
+
+[deps]
+
+source_file="res://TempAssets/Music/Deadlocked.mp3"
+dest_files=[ "res://.import/Deadlocked.mp3-56dc0f0690fb02516504995ef61918da.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

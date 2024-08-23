@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Never Gonna Give You Up.mp3-9b9ddf5a58cf2532d4dd4cb16b0d8f13.mp3str"
+
+[deps]
+
+source_file="res://TempAssets/Music/Never Gonna Give You Up.mp3"
+dest_files=[ "res://.import/Never Gonna Give You Up.mp3-9b9ddf5a58cf2532d4dd4cb16b0d8f13.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

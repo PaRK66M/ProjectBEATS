@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/All Star.mp3-e7a8c597e4e7d7574beae96f887e7a50.mp3str"
+
+[deps]
+
+source_file="res://TempAssets/Music/All Star.mp3"
+dest_files=[ "res://.import/All Star.mp3-e7a8c597e4e7d7574beae96f887e7a50.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

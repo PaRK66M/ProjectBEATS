@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/GAS GAS GAS - EXTENDED MIX.mp3-4ccbb606b2666b6dbb28ff83112689d2.mp3str"
+
+[deps]
+
+source_file="res://TempAssets/Music/GAS GAS GAS - EXTENDED MIX.mp3"
+dest_files=[ "res://.import/GAS GAS GAS - EXTENDED MIX.mp3-4ccbb606b2666b6dbb28ff83112689d2.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
